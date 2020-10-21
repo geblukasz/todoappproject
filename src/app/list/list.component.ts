@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 interface Task {
   name: string;
   isCompleted: boolean;
+  // priority: number;
 }
 
 @Component({
@@ -49,4 +50,11 @@ export class ListComponent implements OnInit {
       }
   }
 
+  public removeCompletedTasks() {
+    for(let zad of this.list){
+        if(zad.isCompleted === true){
+            this.remove(zad);
+        }
+    }
+  }
 }
