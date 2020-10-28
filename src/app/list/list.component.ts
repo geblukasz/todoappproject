@@ -51,10 +51,8 @@ export class ListComponent implements OnInit {
   }
 
   public removeCompletedTasks() {
-    for(let zad of this.list){
-        if(zad.isCompleted === true){
-            this.remove(zad);
-        }
-    }
-  }
+    this.list = this.list.filter(function(x) {
+      return !x.isCompleted;
+  });
+}
 }
