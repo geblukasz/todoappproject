@@ -27,11 +27,15 @@ export class ListComponent implements OnInit {
   }
 
   public handleClick(): void {
-    this.list.push({
-      name: this.inputValue,
-      isCompleted: false
-    })
-    this.inputValue = "";
+    if(this.inputValue && this.inputValue.trim().length > 0){
+      this.list.push({
+        name: this.inputValue,
+        isCompleted: false
+      })
+      this.inputValue = "";
+    } else {
+      alert("Pusty string") 
+    }
   }
 
   public remove(task: Task){
